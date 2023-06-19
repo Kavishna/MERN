@@ -1,0 +1,2 @@
+# MERN
+simple mern app
