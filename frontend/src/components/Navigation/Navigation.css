@@ -1,0 +1,41 @@
+.navigation {
+  background-color: #5297e5;
+  height: 70px;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search {
+  display: flex;
+}
+
+.search > input {
+  width: 200px;
+  height: 35px;
+  border: none;
+  padding-left: 8px;
+}
+
+.search > input:focus {
+  outline: 0;
+  background-color: aliceblue;
+}
+
+.search > button {
+  cursor: pointer;
+  height: 35px;
+  border: none;
+  padding: 0 10px;
+  background-color: #ebe126;
+}
+
+.create > button {
+  background-color: #ebe126;
+  height: 35px;
+  padding: 0 10px;
+  border: none;
+  text-transform: uppercase;
+  cursor: pointer;
+}
