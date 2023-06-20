@@ -5,6 +5,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
 }
 
 .search {
@@ -12,7 +15,7 @@
 }
 
 .search > input {
-  width: 200px;
+  width: 250px;
   height: 35px;
   border: none;
   padding-left: 8px;
@@ -28,14 +31,20 @@
   height: 35px;
   border: none;
   padding: 0 10px;
-  background-color: #ebe126;
+  background-color: #f8d35a;
 }
 
 .create > button {
-  background-color: #ebe126;
+  background-color: #f8d35a;
   height: 35px;
   padding: 0 10px;
   border: none;
   text-transform: uppercase;
   cursor: pointer;
+}
+
+@media screen and (max-width: 550px) {
+  button > span {
+    display: none;
+  }
 }

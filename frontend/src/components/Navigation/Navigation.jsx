@@ -1,8 +1,8 @@
 import "./Navigation.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { faMagnifyingGlass, faAdd } from "@fortawesome/free-solid-svg-icons";
 
-const Navigation = () => {
+const Navigation = ({ setShowForm, showForm }) => {
   return (
     <div className="navigation">
       <div className="search">
@@ -12,7 +12,10 @@ const Navigation = () => {
         </button>
       </div>
       <div className="create">
-        <button>Post Your Ad</button>
+        <button onClick={() => setShowForm(!showForm)}>
+          <span>Post Your Ad </span>
+          <FontAwesomeIcon icon={faAdd} size="lg" />
+        </button>
       </div>
     </div>
   );

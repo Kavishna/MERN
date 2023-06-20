@@ -2,3 +2,7 @@
   --primary-color: #5297e5;
   --secondary-color: #ebad26;
 }
+
+.app {
+  position: relative;
+}

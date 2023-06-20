@@ -1,0 +1,80 @@
+.form {
+  position: absolute;
+  background-color: aliceblue;
+  top: 70px;
+  height: calc(100vh - 70px);
+  width: 100%;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form label {
+  display: block;
+}
+
+.form input {
+  border-radius: 0;
+  border: 1px solid #5297e5;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  width: 300px;
+  outline: 0;
+}
+
+.form h1 {
+  margin-bottom: 40px;
+}
+
+.phone input,
+.title input,
+.price input {
+  padding: 10px 15px;
+  background-color: aliceblue;
+  font-size: 16px;
+}
+
+.phone input:hover,
+.title input:hover,
+.price input:hover {
+  background-color: rgb(246, 250, 254);
+}
+
+input[type="file"]::file-selector-button {
+  display: inline;
+  background-color: #5297e5;
+  color: #ffffff;
+  border: none;
+  padding: 12px 15px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background-color: #61a0e9;
+}
+
+button[type="submit"] {
+  background-color: #f8d35a;
+  border: none;
+  font-size: 20px;
+  padding: 10px;
+  text-transform: uppercase;
+  text-align: center;
+  width: 300px;
+  margin-top: 30px;
+  cursor: pointer;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: #5297e5;
+  background-color: aliceblue;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}

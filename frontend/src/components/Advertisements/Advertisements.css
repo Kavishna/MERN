@@ -1,0 +1,9 @@
+.ads {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, max-content));
+  grid-gap: 20px;
+  justify-content: center;
+  padding: initial;
+  margin: 0 20px;
+  padding-top: 100px;
+}
