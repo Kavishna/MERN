@@ -9,6 +9,7 @@ import {
   setPhone,
   setImagePath,
 } from "../../features/form/formSlice";
+import { fetchAds } from "../../features/ads/adsSlice";
 import { useState } from "react";
 
 const NewAdvertisement = ({ setShowForm }) => {
@@ -34,6 +35,14 @@ const NewAdvertisement = ({ setShowForm }) => {
           "http://localhost:3000/api/ads/upload",
           formData
         );
+
+        // Fetch all ads
+        dispatch(fetchAds());
+
+        // Reset the form data
+        setTitle("");
+        setPhone("");
+        setPrice("");
 
         console.log("File uploaded successfully:", response.data);
       } catch (error) {

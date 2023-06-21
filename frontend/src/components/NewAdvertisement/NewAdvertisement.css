@@ -1,5 +1,5 @@
 .form {
-  position: absolute;
+  position: fixed;
   background-color: aliceblue;
   top: 70px;
   height: calc(100vh - 70px);
@@ -77,4 +77,10 @@ button[type="submit"] {
   border: none;
   padding: 5px 10px;
   cursor: pointer;
+}
+
+@media screen and (max-width: 380px) {
+  .form h1 {
+    font-size: 20px;
+  }
 }

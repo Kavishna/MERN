@@ -1,8 +1,25 @@
 import "./Advertisement.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faPhone } from "@fortawesome/free-solid-svg-icons";
+import { useDispatch } from "react-redux";
+import axios from "axios";
+import { fetchAds } from "../../../features/ads/adsSlice";
 
-const Advertisement = ({ title, price, phone, image }) => {
+const Advertisement = ({ id, title, price, phone, image }) => {
+  const dispatch = useDispatch();
+
+  const handleDelete = () => {
+    axios
+      .delete(`http://localhost:3000/api/ads/${id}`)
+      .then((response) => {
+        dispatch(fetchAds());
+        console.log("Deleted successfully");
+      })
+      .catch((error) => {
+        console.error("Delete error:", error);
+      });
+  };
+
   return (
     <div className="ad">
       <div className="image">
@@ -23,7 +40,7 @@ const Advertisement = ({ title, price, phone, image }) => {
         </div>
         <div className="delete">
           <p className="time">2 days ago</p>
-          <button title="Delete Advertisement">
+          <button onClick={() => handleDelete()} title="Delete Advertisement">
             <span>Delete AD</span>
             <FontAwesomeIcon icon={faTrash} />
           </button>
