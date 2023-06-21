@@ -4,8 +4,9 @@ import { faTrash, faPhone } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch } from "react-redux";
 import axios from "axios";
 import { fetchAds } from "../../../features/ads/adsSlice";
+import moment from "moment";
 
-const Advertisement = ({ id, title, price, phone, image }) => {
+const Advertisement = ({ id, title, price, phone, image, time }) => {
   const dispatch = useDispatch();
 
   const handleDelete = () => {
@@ -39,7 +40,7 @@ const Advertisement = ({ id, title, price, phone, image }) => {
           </p>
         </div>
         <div className="delete">
-          <p className="time">2 days ago</p>
+          <p className="time">{moment(time).fromNow()}</p>
           <button onClick={() => handleDelete()} title="Delete Advertisement">
             <span>Delete AD</span>
             <FontAwesomeIcon icon={faTrash} />

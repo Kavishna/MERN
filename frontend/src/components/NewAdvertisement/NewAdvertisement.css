@@ -68,6 +68,10 @@ button[type="submit"] {
   cursor: pointer;
 }
 
+button[type="submit"]:disabled {
+  background-color: #a9a9a9;
+}
+
 .close {
   position: absolute;
   top: 20px;

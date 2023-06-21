@@ -27,6 +27,7 @@ router.get("/", async (req, res) => {
       price: ad.price,
       phone: ad.phone,
       image: ad.image.toString("base64"),
+      time: ad.createdAt,
     }));
 
     res.json(adResponses);

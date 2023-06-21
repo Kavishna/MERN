@@ -15,13 +15,21 @@ const Advertisements = () => {
     dispatch(fetchAds());
   }, [dispatch]);
 
+  const displayStatus = () => {
+    if (status === "loading") return <p>Loading ads...</p>;
+    if (status === "failed") return <p>Something went wrong.</p>;
+  };
+
   return (
     <div className="ads">
+      {!ads && displayStatus}
+
       {!filteredAds
         ? ads.map((ad) => {
             return (
               <Advertisement
                 key={ad.id}
+                time={ad.time}
                 id={ad.id}
                 price={ad.price}
                 title={ad.title}
@@ -35,6 +43,7 @@ const Advertisements = () => {
               <Advertisement
                 key={ad.id}
                 id={ad.id}
+                time={ad.time}
                 price={ad.price}
                 title={ad.title}
                 phone={ad.phone}
