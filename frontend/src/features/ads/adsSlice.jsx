@@ -1,5 +1,3 @@
-// adsSlice.js
-
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
@@ -14,10 +12,19 @@ const adsSlice = createSlice({
   name: "ads",
   initialState: {
     ads: [],
+    filteredAds: [], // Add filtered ads array
     status: "idle",
     error: null,
   },
-  reducers: {},
+  reducers: {
+    filterAds: (state, action) => {
+      const searchQuery = action.payload.toLowerCase();
+
+      state.filteredAds = state.ads.filter((ad) =>
+        ad.title.toLowerCase().includes(searchQuery)
+      );
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchAds.pending, (state) => {
@@ -26,6 +33,7 @@ const adsSlice = createSlice({
       .addCase(fetchAds.fulfilled, (state, action) => {
         state.status = "succeeded";
         state.ads = action.payload;
+        state.filteredAds = action.payload; // Initialize filtered ads with all ads
       })
       .addCase(fetchAds.rejected, (state, action) => {
         state.status = "failed";
@@ -33,5 +41,7 @@ const adsSlice = createSlice({
       });
   },
 });
+
+export const { filterAds } = adsSlice.actions;
 
 export default adsSlice.reducer;
