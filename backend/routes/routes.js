@@ -22,6 +22,7 @@ router.get("/", async (req, res) => {
     }
 
     const adResponses = advertisement.map((ad) => ({
+      id: ad._id.toString(),
       title: ad.title,
       price: ad.price,
       phone: ad.phone,
@@ -41,6 +42,7 @@ router.get("/", async (req, res) => {
 
 //post a ad
 router.post("/upload/", upload.single("image"), async (req, res) => {
+  console.log("re");
   try {
     const { title, price, phone } = req.body;
 
@@ -59,6 +61,7 @@ router.post("/upload/", upload.single("image"), async (req, res) => {
       code: 200,
     });
   } catch (error) {
+    console.log(error);
     res.status(500).json({
       status: "error",
       message: "error creating advertisement",

@@ -1,5 +1,7 @@
+import { useEffect, useState } from "react";
 import Advertisement from "./Advertisement/Advertisement";
 import "./Advertisements.css";
+import axios from "axios";
 
 const dummyData = [
   {
@@ -55,11 +57,41 @@ const dummyData = [
 ];
 
 const Advertisements = () => {
+  const [ads, setAds] = useState([]);
+
+  console.log(ads);
+
+  useEffect(() => {
+    const fetchAds = async () => {
+      try {
+        const response = await axios.get("http://localhost:3000/api/ads");
+        const fetchedAds = response.data.map((ad) => ({
+          id: ad.id,
+          title: ad.title,
+          price: ad.price,
+          phone: ad.phone,
+          image: ad.image.toString("base64"),
+        }));
+        setAds(fetchedAds);
+      } catch (error) {
+        console.error("Error fetching ads:", error);
+      }
+    };
+
+    fetchAds();
+  }, []);
+
   return (
     <div className="ads">
-      {dummyData.map((ad) => {
+      {ads.map((ad) => {
         return (
-          <Advertisement price={ad.price} title={ad.title} phone={ad.phone} />
+          <Advertisement
+            key={ad.id}
+            price={ad.price}
+            title={ad.title}
+            phone={ad.phone}
+            image={ad.image}
+          />
         );
       })}
     </div>
