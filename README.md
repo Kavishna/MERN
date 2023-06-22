@@ -12,6 +12,8 @@ The REST API is deployed on Render.com. You can access the project by visiting [
 
 ## Troubleshooting
 
+**Please note that the initial load may take a few seconds as the server may terminate after 15 minutes of inactivity.**
+
 If the ads are not being displayed, it is recommended to disable any ad blockers that might be active. Ad blockers sometimes interfere with the rendering of content, especially when keywords like "ads" are used in the project.
 
 Thank you for your understanding, and enjoy exploring the MERN project!
