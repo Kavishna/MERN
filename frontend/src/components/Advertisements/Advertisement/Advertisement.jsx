@@ -11,7 +11,7 @@ const Advertisement = ({ id, title, price, phone, image, time }) => {
 
   const handleDelete = () => {
     axios
-      .delete(`http://localhost:3000/api/ads/${id}`)
+      .delete(`${import.meta.env.VITE_BASE_URI}/api/ads/${id}`)
       .then((response) => {
         dispatch(fetchAds());
         console.log("Deleted successfully");

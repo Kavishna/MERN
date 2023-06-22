@@ -3,7 +3,7 @@ import axios from "axios";
 
 // Create an async thunk to fetch ads data
 export const fetchAds = createAsyncThunk("ads/fetchAds", async () => {
-  const response = await axios.get("http://localhost:3000/api/ads");
+  const response = await axios.get(`${import.meta.env.VITE_BASE_URI}/api/ads`);
   return response.data;
 });
 

@@ -39,7 +39,7 @@ const NewAdvertisement = ({ setShowForm }) => {
         formData.append("phone", phone);
 
         const response = await axios.post(
-          "http://localhost:3000/api/ads/upload",
+          `${import.meta.env.VITE_BASE_URI}/api/ads/upload`,
           formData
         );
 
